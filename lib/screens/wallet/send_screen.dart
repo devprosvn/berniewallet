@@ -373,7 +373,7 @@ class _SendScreenState extends State<SendScreen> {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Are you sure you want to send:'),
+            const Text('Are you sure you want to send:'),
             const SizedBox(height: kSmallPadding),
             Text(
               '${amount.toStringAsFixed(6)} ALGO',
@@ -437,8 +437,8 @@ class _SendScreenState extends State<SendScreen> {
       SnackBar(
         content: Row(
           children: [
-            Icon(Icons.error_outline, color: Colors.white),
-            SizedBox(width: 8),
+            const Icon(Icons.error_outline, color: Colors.white),
+            const SizedBox(width: 8),
             Expanded(child: Text(displayMessage)),
           ],
         ),

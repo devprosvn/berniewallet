@@ -94,8 +94,8 @@ class SettingsScreen extends StatelessWidget {
                 applicationLegalese:
                     '© ${DateTime.now().year} Bernie Wallet Devs',
                 children: <Widget>[
-                  Padding(
-                      padding: const EdgeInsets.only(top: 15),
+                  const Padding(
+                      padding: EdgeInsets.only(top: 15),
                       child: Text('Your friendly Algorand wallet.'))
                 ],
               );

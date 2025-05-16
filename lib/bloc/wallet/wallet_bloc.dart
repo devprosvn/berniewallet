@@ -338,7 +338,7 @@ class WalletBloc extends Bloc<WalletEvent, WalletState> {
     }
 
     // Cần kiểm tra thêm 0.001 ALGO cho phí giao dịch
-    final minTxFee = 0.001; // 1000 microALGOs
+    const minTxFee = 0.001; // 1000 microALGOs
 
     // Kiểm tra số dư có đủ bao gồm phí giao dịch không
     if (event.amount + minTxFee > currentWallet.balance) {

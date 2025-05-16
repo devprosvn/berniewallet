@@ -34,7 +34,7 @@ class BernieWalletApp extends StatelessWidget {
       child: BlocProvider(
         create: (context) => WalletBloc(
           walletRepository: walletRepository,
-        )..add(LoadWallet()), // Initial event to load wallet if exists
+        )..add(const LoadWallet()), // Initial event to load wallet if exists
         child: MaterialApp(
           title: kAppName,
           theme: AppTheme.lightTheme,

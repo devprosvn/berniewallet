@@ -386,10 +386,10 @@ class _HomeScreenState extends State<HomeScreen> {
                       borderRadius: BorderRadius.circular(kDefaultRadius),
                     ),
                     child: state.transactions.isEmpty
-                        ? Padding(
-                            padding: const EdgeInsets.symmetric(
+                        ? const Padding(
+                            padding: EdgeInsets.symmetric(
                                 vertical: kDefaultPadding * 2),
-                            child: const Center(
+                            child: Center(
                               child: Text('No transactions yet.'),
                             ),
                           )

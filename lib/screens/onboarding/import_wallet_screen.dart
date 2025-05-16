@@ -136,10 +136,10 @@ class _ImportWalletScreenState extends State<ImportWalletScreen> {
                   const SizedBox(height: kDefaultPadding * 1.5),
                   TextFormField(
                     controller: _mnemonicController,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: 'Recovery Phrase (25 words)',
                       hintText: 'Word1 Word2 Word3 ... Word25',
-                      border: const OutlineInputBorder(),
+                      border: OutlineInputBorder(),
                       // suffixIcon: IconButton(
                       //   icon: Icon(_obscureMnemonic ? Icons.visibility_off : Icons.visibility),
                       //   onPressed: () => setState(() => _obscureMnemonic = !_obscureMnemonic),

@@ -210,7 +210,7 @@ class AlgorandService {
   String? _getAssetId(dynamic tx) {
     if (tx.txType == 'axfer' && tx.assetTransferTransaction != null) {
       final assetId = tx.assetTransferTransaction.assetId;
-      return assetId != null ? assetId.toString() : null;
+      return assetId?.toString();
     }
     return null;
   }
@@ -245,7 +245,7 @@ class AlgorandService {
       // Lấy thông tin tài khoản để kiểm tra số dư
       final accountInfo =
           await _algorand.getAccountByAddress(account.publicAddress);
-      final minFee = 1000; // Phí giao dịch tối thiểu trên Algorand (microAlgos)
+      const minFee = 1000; // Phí giao dịch tối thiểu trên Algorand (microAlgos)
 
       // Kiểm tra xem số dư có đủ cho cả số tiền và phí giao dịch không
       if (accountInfo.amount < (amount + minFee)) {
@@ -255,10 +255,6 @@ class AlgorandService {
 
       // Lấy tham số giao dịch được đề xuất
       final params = await _algorand.getSuggestedTransactionParams();
-
-      if (params == null) {
-        throw Exception('Không thể lấy tham số giao dịch');
-      }
 
       // Xây dựng giao dịch thanh toán với chuyển đổi ghi chú phù hợp
       final transaction = await (algo.PaymentTransactionBuilder()
@@ -275,7 +271,7 @@ class AlgorandService {
       final txId = await _algorand.sendTransaction(signedTransaction);
 
       // Xác minh chúng ta nhận được ID giao dịch hợp lệ
-      if (txId == null || txId.isEmpty) {
+      if (txId.isEmpty) {
         throw Exception(
             'Giao dịch đã được gửi nhưng không có ID giao dịch được trả về');
       }

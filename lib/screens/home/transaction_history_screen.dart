@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:bernie_wallet/models/transaction_model.dart';
 import 'package:bernie_wallet/repositories/wallet_repository.dart';
-import 'package:bernie_wallet/services/algorand_service.dart';
 import 'package:bernie_wallet/widgets/shared/loading_indicator.dart';
 import 'package:bernie_wallet/widgets/wallet/transaction_list_item.dart';
 import 'package:bernie_wallet/config/constants.dart';

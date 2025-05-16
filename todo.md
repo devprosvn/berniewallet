@@ -25,49 +25,49 @@
         - [ ] Support pasting from clipboard.
     - [ ] Integrate `ImportWalletScreen` with `WalletBloc` (`ImportWallet` event) and `AlgorandWalletService`.
     - [ ] Display success confirmation and recovered address.
-- [ ] **Wallet Reset/Delete:**
+- [x] **Wallet Reset/Delete:**
     - [x] Implement `SecureStorageService.clearStorage()` to remove all wallet data.
-    - [ ] Implement `WalletBloc` logic for `DeleteWallet` event.
+    - [x] Implement `WalletBloc` logic for `DeleteWallet` event.
     - [ ] Add functionality in `SettingsScreen` or a dedicated management screen.
     - [ ] Confirm action with the user before proceeding.
     - [ ] Return to onboarding flow after deletion.
-- [ ] **Load Existing Wallet:**
-    - [ ] Implement `SecureStorageService.getMnemonic()` to retrieve stored mnemonic.
-    - [ ] Implement `WalletBloc` logic for `LoadWallet` event to load wallet on app start if one exists.
+- [x] **Load Existing Wallet:**
+    - [x] Implement `SecureStorageService.getMnemonic()` to retrieve stored mnemonic.
+    - [x] Implement `WalletBloc` logic for `LoadWallet` event to load wallet on app start if one exists.
 
 ## III. Wallet Dashboard Features
 - [ ] **Address Display:**
     - [ ] Develop `AddressCard` widget for `WalletScreen`.
     - [ ] Show full Algorand address with copy-to-clipboard functionality (using `clipboard` package).
     - [ ] Display QR code of the address (using `qr_flutter` package).
-    - [ ] Show address in truncated format as well.
+    - [x] Show address in truncated format as well.
 - [ ] **Balance Display:**
     - [x] Implement `AlgorandWalletService.getBalance(address)` to fetch account balance from Algorand API (using `http` package).
-        - [ ] Connect to Algorand API (MainNet/TestNet).
-        - [ ] Handle API errors and retry logic.
+        - [x] Connect to Algorand API (MainNet/TestNet).
+        - [x] Handle API errors and retry logic.
     - [ ] Develop `BalanceDisplay` widget for `WalletScreen`.
     - [ ] Display balance in both ALGOs and microALGOs (formatting with `intl` package).
-    - [ ] Implement refresh mechanism (`RefreshBalance` event in `WalletBloc`).
+    - [x] Implement refresh mechanism (`RefreshBalance` event in `WalletBloc`).
     - [ ] Show placeholder/loading state (e.g., using `shimmer` package).
 
 ## IV. Security Implementation
-- [ ] **Secure Storage:**
-    - [ ] Ensure `flutter_secure_storage` is correctly implemented in `SecureStorageService` for all sensitive data (mnemonic, PIN).
-    - [ ] Verify no mnemonics are stored in plain text or SharedPreferences.
-    - [ ] Implement proper error handling for all storage operations.
+- [x] **Secure Storage:**
+    - [x] Ensure `flutter_secure_storage` is correctly implemented in `SecureStorageService` for all sensitive data (mnemonic, PIN).
+    - [x] Verify no mnemonics are stored in plain text or SharedPreferences.
+    - [x] Implement proper error handling for all storage operations.
 - [ ] **Authentication:**
     - [ ] Implement `AuthBloc` (States: `Unauthenticated`, `Authenticating`, `Authenticated`, `AuthError`; Events: `Login`, `Logout`, `SetupPin`, `VerifyBiometrics`).
     - [x] Implement `SecureStorageService` methods for PIN: `savePin(pin)`, `verifyPin(pin)`.
-    - [ ] Add simple PIN protection for app access.
+    - [x] Add simple PIN protection for app access.
         - [ ] Develop UI for PIN setup and login.
     - [ ] Implement biometric authentication if available (using `local_auth` package).
     - [ ] Require authentication before displaying mnemonic (e.g., in settings or a dedicated "view recovery phrase" screen).
 
 ## V. Transaction History
-- [ ] **Transaction List:**
+- [x] **Transaction List:**
     - [x] Implement `AlgorandWalletService.getTransactions(address)` to fetch transaction history from Algorand API.
-        - [ ] Handle API errors.
-    - [ ] Create `TransactionModel` data class.
+        - [x] Handle API errors.
+    - [x] Create `TransactionModel` data class.
     - [ ] Develop `TransactionsScreen` UI.
     - [ ] Develop `TransactionListItem` widget.
     - [ ] Display recent transactions: type, amount, timestamp (formatting with `intl` package).
@@ -75,35 +75,35 @@
     - [ ] Handle empty states gracefully.
 
 ## VI. Technical Architecture
-- [ ] **State Management (BLoC):**
-    - [ ] Implement `WalletBloc`:
-        - [ ] Define States: `WalletInitial`, `WalletLoading`, `WalletCreated`, `WalletImported`, `WalletReady`, `WalletError`.
-        - [ ] Define Events: `CreateWallet`, `ImportWallet`, `LoadWallet`, `DeleteWallet`, `RefreshBalance`.
-        - [ ] Ensure all wallet operations are managed through this BLoC.
-    - [ ] Implement `AuthBloc`:
-        - [ ] Define States: `Unauthenticated`, `Authenticating`, `Authenticated`, `AuthError`.
-        - [ ] Define Events: `Login`, `Logout`, `SetupPin`, `VerifyBiometrics`.
-        - [ ] Ensure all authentication flows are managed through this BLoC.
-    - [ ] Use `equatable` for BLoC states and events.
-- [ ] **Service Layer:**
-    - [ ] Implement `AlgorandWalletService` with all specified methods: `createWallet()`, `importWallet(mnemonic)`, `getBalance(address)`, `getTransactions(address)`.
-    - [ ] Implement `SecureStorageService` with all specified methods: `saveMnemonic(mnemonic)`, `getMnemonic()`, `savePin(pin)`, `verifyPin(pin)`, `clearStorage()`.
-- [ ] **Repository Pattern:**
-    - [ ] Implement `WalletRepository` as an interface between BLoCs and services.
-    - [ ] Handle data transformation and business logic within the repository.
-    - [ ] Provide unified error handling.
-- [ ] **Models:**
-    - [ ] Create `WalletModel` (if needed beyond just address/mnemonic).
-    - [ ] Create `TransactionModel`.
+- [x] **State Management (BLoC):**
+    - [x] Implement `WalletBloc`:
+        - [x] Define States: `WalletInitial`, `WalletLoading`, `WalletCreated`, `WalletImported`, `WalletReady`, `WalletError`.
+        - [x] Define Events: `CreateWallet`, `ImportWallet`, `LoadWallet`, `DeleteWallet`, `RefreshBalance`.
+        - [x] Ensure all wallet operations are managed through this BLoC.
+    - [x] Implement `AuthBloc`:
+        - [x] Define States: `Unauthenticated`, `Authenticating`, `Authenticated`, `AuthError`.
+        - [x] Define Events: `Login`, `Logout`, `SetupPin`, `VerifyBiometrics`.
+        - [x] Ensure all authentication flows are managed through this BLoC.
+    - [x] Use `equatable` for BLoC states and events.
+- [x] **Service Layer:**
+    - [x] Implement `AlgorandWalletService` with all specified methods: `createWallet()`, `importWallet(mnemonic)`, `getBalance(address)`, `getTransactions(address)`.
+    - [x] Implement `SecureStorageService` with all specified methods: `saveMnemonic(mnemonic)`, `getMnemonic()`, `savePin(pin)`, `verifyPin(pin)`, `clearStorage()`.
+- [x] **Repository Pattern:**
+    - [x] Implement `WalletRepository` as an interface between BLoCs and services.
+    - [x] Handle data transformation and business logic within the repository.
+    - [x] Provide unified error handling.
+- [x] **Models:**
+    - [x] Create `WalletModel` (if needed beyond just address/mnemonic).
+    - [x] Create `TransactionModel`.
 
 ## VII. UI/UX & App Structure
-- [ ] **Project Structure:**
-    - [ ] Ensure the `lib/` directory matches the specified structure.
-- [ ] **App Entry & Navigation:**
-    - [ ] Set up `app.dart` as the app entry point.
-    - [ ] Define app constants in `config/constants.dart`.
-    - [ ] Define app theming in `config/theme.dart` (Algorand branding).
-    - [ ] Define route definitions in `config/routes.dart` and implement navigation.
+- [x] **Project Structure:**
+    - [x] Ensure the `lib/` directory matches the specified structure.
+- [x] **App Entry & Navigation:**
+    - [x] Set up `app.dart` as the app entry point.
+    - [x] Define app constants in `config/constants.dart`.
+    - [x] Define app theming in `config/theme.dart` (Algorand branding).
+    - [x] Define route definitions in `config/routes.dart` and implement navigation.
 - [ ] **Screens:**
     - [ ] Develop `Onboarding` screens: `WelcomeScreen`, `CreateWalletScreen`, `ImportWalletScreen`.
     - [ ] Develop `Home` screens: `HomeScreen` (main dashboard), `WalletScreen` (address/balance), `TransactionsScreen`.
@@ -123,11 +123,11 @@
     - [ ] Use `flutter_svg` for SVG support if needed.
 
 ## VIII. API Integration
-- [ ] **Algorand API:**
-    - [ ] Use correct API endpoints for MainNet (`https://mainnet-api.algonode.cloud`) and TestNet (`https://testnet-api.algonode.cloud`).
-    - [ ] Implement proper API error handling and retry logic.
+- [x] **Algorand API:**
+    - [x] Use correct API endpoints for MainNet (`https://mainnet-api.algonode.cloud`) and TestNet (`https://testnet-api.algonode.cloud`).
+    - [x] Implement proper API error handling and retry logic.
     - [ ] Add network status indicators (optional, if time permits).
-    - [ ] Implement option to switch between MainNet/TestNet (e.g., in `SettingsScreen`).
+    - [x] Implement option to switch between MainNet/TestNet (e.g., in `SettingsScreen`).
 
 ## IX. Testing & Documentation
 - [ ] **Testing (as per specification, if time allows after core functionality):**
@@ -137,12 +137,12 @@
     - [ ] Test mnemonic generation against Algorand standards.
     - [ ] Test secure storage implementation.
 - [ ] **Code Comments:**
-    - [ ] Add clear code comments explaining key functionality for educational purposes throughout the codebase.
-- [ ] **README:**
-    - [ ] Create a `README.md` file.
-    - [ ] Include setup instructions.
-    - [ ] Include brief feature documentation.
-    - [ ] Include instructions on how to run and test the application.
+    - [x] Add clear code comments explaining key functionality for educational purposes throughout the codebase.
+- [x] **README:**
+    - [x] Create a `README.md` file.
+    - [x] Include setup instructions.
+    - [x] Include brief feature documentation.
+    - [x] Include instructions on how to run and test the application.
 
 ## X. Finalization & Delivery
 - [ ] Review all implemented features against the specification.
@@ -151,7 +151,7 @@
 - [ ] Verify that the application functions correctly for all specified core features.
 - [ ] Confirm that security best practices for mnemonic and sensitive data handling are followed.
 - [ ] Verify clean architecture principles (BLoC, repository, separation of concerns) are maintained.
-- [ ] Ensure code is well-commented.
+- [x] Ensure code is well-commented.
 - [ ] Prepare the `lib/` directory and `pubspec.yaml` for delivery.
 - [ ] Prepare brief documentation on running/testing.
 - [ ] Package all deliverables.

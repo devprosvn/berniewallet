@@ -22,28 +22,28 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             // You can add a logo here
             // For example: Image.asset('assets/logo.png', height: 100),
-            const SizedBox(height: 20),
-            const Text(
+            SizedBox(height: 20),
+            Text(
               kAppName,
               style: TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.bold,
                   color: kPrimaryColor),
             ),
-            const SizedBox(height: 10),
-            const Text(
+            SizedBox(height: 10),
+            Text(
               'Your Secure Algorand Wallet',
               style: TextStyle(fontSize: 16, color: Colors.grey),
             ),
-            const SizedBox(height: 40),
-            const CircularProgressIndicator(),
+            SizedBox(height: 40),
+            CircularProgressIndicator(),
           ],
         ),
       ),
