@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="refresh" content="0;URL='/berniewallet/'">
+  <script>
+    // GitHub Pages 404 Handling for Single Page Apps
+    window.onload = function() {
+      var segmentCount = 1; // We have 1 segment in our path: 'berniewallet'
+      var location = window.location;
+      var redirectPath = location.pathname.replace(/\/berniewallet\//, '/');
+      var newPath = '/berniewallet/' + redirectPath.split('/').slice(segmentCount).join('/');
+      
+      // Preserve query parameters and hash if present
+      if (location.search) newPath += location.search;
+      if (location.hash) newPath += location.hash;
+      
+      // Redirect to the proper route while preserving the path
+      window.location.href = newPath;
+    }
+  </script>
+  <title>Bernie Wallet - Redirecting</title>
+</head>
+<body>
+  <h1>Redirecting to Bernie Wallet...</h1>
+  <p>If you are not redirected automatically, click <a href="/berniewallet/">here</a>.</p>
+</body>
+</html>
